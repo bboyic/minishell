@@ -6,7 +6,7 @@
 /*   By: aarchiba < aarchiba@student.21-school.r    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:32:22 by aarchiba          #+#    #+#             */
-/*   Updated: 2021/12/30 00:00:33 by aarchiba         ###   ########.fr       */
+/*   Updated: 2022/01/11 18:12:07 by aarchiba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@
 # include <semaphore.h>  
 # include "libft/libft.h"
 
+typedef struct s_pipe
+{
+	int	in;
+	int	out;
+}	t_pipe;
+
+typedef struct s_redir
+{
+	int	red_l;
+	int	red_r;
+	int	d_res;
+	int	heridog;
+}	t_redir;
+
 typedef struct s_data
 {
 	struct s_data	*next;
@@ -42,6 +56,14 @@ typedef struct s_data
 	int				args;
 	int				cmd;
 }	t_data;
+
+typedef struct s_cmd
+{
+	char	**args;
+	t_pipe	*pipe;
+	t_redir	*redir;
+	int		or;
+}	t_cmd;
 
 void	error_end(char *str, int flag);
 #endif
