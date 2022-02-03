@@ -3,31 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   env_to_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aconchit <aconchit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aarchiba <aarchiba@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 01:30:12 by aconchit          #+#    #+#             */
-/*   Updated: 2022/01/25 02:13:51 by aconchit         ###   ########.fr       */
+/*   Updated: 2022/01/26 15:21:24 by aarchiba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*==DICTIONARY FOR ENV==*/
-typedef struct s_env
-{
-	struct s_env	*next;
-	char			*key;
-	char			*value;
-	
-}	t_env;
-
 /*==DICTIONARY CREATOR==*/
-t_env	*ft_new_list(char *data)
+static t_env	*ft_new_list(char *data)
 {
 	char	**split;
 	t_env	*list;
 
-	if (!data)	
+	if (!data)
 		return (NULL);
 	split = NULL;
 	list = (t_env *)malloc(sizeof(t_env));
@@ -52,7 +43,7 @@ t_env	*ft_env_to_list(char **env)
 
 	env_list = ft_new_list(*env);
 	if (!env_list)
-		return(NULL);
+		return (NULL);
 	res = env_list;
 	while (env)
 	{
@@ -66,6 +57,7 @@ t_env	*ft_env_to_list(char **env)
 }
 
 /*==TEST MAIN==*/
+/*
 int	main(int argc, char **argv, char **env)
 {
 	t_env	*list_env;
@@ -83,3 +75,4 @@ int	main(int argc, char **argv, char **env)
 	}
 	return (0);
 }
+*/
